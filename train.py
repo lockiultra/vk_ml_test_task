@@ -25,7 +25,7 @@ def train(path_to_data: str) -> NoReturn:
     }
 
     model = XGBClassifier()
-    grid_search = GridSearchCV(model, param_grid, cv=5, scoring='f1')
+    grid_search = GridSearchCV(model, param_grid, cv=5, scoring='f1_weighted')
     grid_search.fit(X, y)
 
     print(f'Best params: {grid_search.best_params_}')
